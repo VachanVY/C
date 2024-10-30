@@ -1,34 +1,52 @@
 #include <stdio.h>
+#include <stdbool.h>
 
-int strcat(char *s, char *t){
+void strcat(char *s, char *t){
   while(*s != '\0')
     ++s;                   // After the loop ends, s represents the address of last char of s
   while((*s = *t) != '\0') // value at t i.e *t will go to *s
-    ++s, ++t;              // inc address of s and t 
+    ++s, ++t;              // inc address of s and t
 }
 
 int strcmp(char *s, char *t){
     while(*s != '\0' && *t != '\0'){
         if(*s != *t)
-            return 0;
+            return false;
         ++s, ++t;    
     }
-    return 1;
+    return true;
 }
 
-int strlen(char *s){
-    int len = 0;
+size_t strlen(char *s){
+    size_t len = 0;
     while(*s != '\0')
-        ++s, len += 1;
+        ++s, len++;
     return len;
 }
 
+void strrev(char* s, char* r){
+    size_t ns = strlen(s) - 1;
+    int iter = ns;
+    while(iter>=0){
+        r[ns-iter] = s[iter];
+        iter--;
+    }
+    r[ns+1] = '\0';
+}
+
+
 int main(){
     char s[20] = "It's ";
-    char t[8] = "Vachan";
-    char u[8] = "Vachan";
+    char t[] = "Vachan";
+    char u[] = "Vachan";
+    char v[7];
 
-    printf("%i\n", strcmp(t, s));
+    printf("%s\n", u);
+    strrev(u, v);
+    printf(v);
+    // printf("%s\n", u);
+    // printf("%i\n", strlen(t));
+    // printf("%i\n", strcmp(t, s));
 }
 
 /*
