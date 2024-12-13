@@ -1,6 +1,6 @@
 # implement a multiple stack concept to check if a string os a palindrome or not
 from stack import Stack
-from infix_to_postfix import infix_to_postfix
+from infix_to_postfix import infix_to_prefix
 
 def eval(above, before, op):
     match op:
@@ -29,7 +29,7 @@ def eval_postfix(expr:list[str]):
     return stack.pop()
 
 
-print(postfix:=infix_to_postfix(infix=list("((2^6+8)*7-8)/7"))) # 70.8571
+print(postfix:=infix_to_prefix(infix=list("((2^6+8)*7-8)/7"))) # 70.8571
 print(eval_postfix(postfix))
 
 # def palindrome(string:str):

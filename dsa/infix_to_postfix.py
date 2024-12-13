@@ -1,6 +1,6 @@
 from stack import Stack
 
-def infix_to_postfix(
+def infix_to_prefix(
     infix:list[str],
     rank:dict[str, int]={"^":3, "/":2, "*":1, "+":0, "-":0}
 ):
@@ -33,14 +33,14 @@ def infix_to_postfix(
 
 if __name__ == "__main__":
     print(
-        infix_to_postfix(list("((a+b)-c*(d/e))+f"))
+        infix_to_prefix(list("((a+b)-c*(d/e))+f"))
     )
     print(
-        infix_to_postfix(list("((1+2*3/5)^6+7)-8"))
+        infix_to_prefix(list("((1+2*3/5)^6+7)-8"))
     )
     print(
-        infix_to_postfix(list("((A+B)-C*(D/E))+F"))
+        infix_to_prefix(list("((A+B)-C*(D/E))+F"))
     )
     print(
-        infix_to_postfix(list("((a^b+c)*f-d)/e"))
+        infix_to_prefix(list("((a^b+c)*f-d)/e"))
     )
